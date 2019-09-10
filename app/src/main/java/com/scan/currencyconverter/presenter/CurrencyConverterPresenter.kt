@@ -1,0 +1,3 @@
+package com.scan.currencyconverter.presenter
+
+class CurrencyConverterPresenter

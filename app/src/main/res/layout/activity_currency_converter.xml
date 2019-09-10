@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.CurrencyConverterActivity">
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/TextViewStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="@string/title"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toTopOf="@+id/usdLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/usdText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TextViewStyle"
+        android:text="@string/usd"
+        android:layout_marginStart="32dp"
+        app:layout_constraintBottom_toBottomOf="@+id/usdLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/usdLayout" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/usdLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/usdText"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.27">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/usdEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/eurText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TextViewStyle"
+        android:text="@string/eur"
+        android:layout_marginStart="32dp"
+        app:layout_constraintBottom_toBottomOf="@+id/eurLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/eurLayout" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/eurLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/eurText"
+        app:layout_constraintTop_toBottomOf="@+id/usdLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/eurEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/rubText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TextViewStyle"
+        android:text="@string/rub"
+        android:layout_marginStart="32dp"
+        app:layout_constraintBottom_toBottomOf="@+id/rubLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/rubLayout" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/rubLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/rubText"
+        app:layout_constraintTop_toBottomOf="@+id/eurLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/rubEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/bynText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TextViewStyle"
+        android:text="@string/byn"
+        android:layout_marginStart="32dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bynLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bynLayout" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/bynLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bynText"
+        app:layout_constraintTop_toBottomOf="@+id/rubLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/bynEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

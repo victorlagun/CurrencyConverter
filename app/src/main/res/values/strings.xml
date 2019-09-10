@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Currency Converter</string>
+    <string name="title">По курсу НБ РБ</string>
+    <string name="usd">USD</string>
+    <string name="eur">EUR</string>
+    <string name="rub">RUB</string>
+    <string name="byn">BYN</string>
+
 </resources>
