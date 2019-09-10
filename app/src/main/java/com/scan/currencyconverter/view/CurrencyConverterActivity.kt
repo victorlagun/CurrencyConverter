@@ -1,15 +1,19 @@
 package com.scan.currencyconverter.view
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.appcompat.app.AppCompatActivity
 import com.scan.currencyconverter.R
 import com.scan.currencyconverter.model.CurrencyOfficialRate
 import com.scan.currencyconverter.repository.Repository
 import com.scan.currencyconverter.repository.remote.Remote
 import com.scan.currencyconverter.util.Converter
+import com.scan.currencyconverter.util.Formatter
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_currency_converter.*
+
 
 class CurrencyConverterActivity : AppCompatActivity() {
 
@@ -28,16 +32,22 @@ class CurrencyConverterActivity : AppCompatActivity() {
     }
 
     fun init(rates: List<CurrencyOfficialRate>) {
-        val converter = Converter()
-        val usdToByn = converter.getCurrencyRateToBYN(resources.getString(R.string.usd), rates)
-        val eurToByn = converter.getCurrencyRateToBYN(resources.getString(R.string.eur), rates)
-        val rubToByn = converter.getCurrencyRateToBYN(resources.getString(R.string.rub), rates)
-        val usdToEur = converter.getUSDRate(eurToByn, usdToByn)
-        val usdToRub = converter.getUSDRate(rubToByn, usdToByn) * 100
+        val converter = Converter(rates, resources.getString(R.string.usd))
+        val formatter = Formatter()
+        usdEditText.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable) {}
+
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                if (s.isNotEmpty()) {
+                    eurEditText.setText(formatter.format(converter.convert(s.toString().toDouble(), resources.getString(R.string.eur))))
+                    rubEditText.setText(formatter.format(converter.convert(s.toString().toDouble(), resources.getString(R.string.rub))))
+                    bynEditText.setText(formatter.format(converter.convert(s.toString().toDouble(), resources.getString(R.string.usd))))
+                }
+            }
+        })
         usdEditText.setText("1")
-        eurEditText.setText(converter.convert(1, usdToEur).toString())
-        rubEditText.setText(converter.convert(1, usdToRub).toString())
-        bynEditText.setText(converter.convert(1, usdToByn).toString())
 
     }
 }

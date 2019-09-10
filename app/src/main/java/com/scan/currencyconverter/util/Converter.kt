@@ -2,20 +2,21 @@ package com.scan.currencyconverter.util
 
 import com.scan.currencyconverter.model.CurrencyOfficialRate
 
-class Converter {
+class Converter(private val rates: List<CurrencyOfficialRate>, fromCurrency: String) {
+    private val fromRate = getCurrencyRate(fromCurrency)
 
-    fun convert(amount: Int, USDRate: Double): Double {
-        return amount * USDRate
+    fun convert(amount: Double, currencyAbbreviation: String): Double {
+        return amount * getConversionRate(fromRate, getCurrencyRate(currencyAbbreviation))
     }
 
-    fun getUSDRate(currencyRateToBYN: Double, usdRateToBYN: Double): Double {
-        return usdRateToBYN / currencyRateToBYN
+    private fun getConversionRate(fromRate: Double, toRate: Double): Double {
+        return if (fromRate == toRate) fromRate
+        else fromRate / toRate
     }
 
-    fun getCurrencyRateToBYN(
-        currencyAbbreviation: String,
-        rates: List<CurrencyOfficialRate>
-    ): Double {
-        return rates.filter { rate -> rate.Cur_Abbreviation == currencyAbbreviation }[0].Cur_OfficialRate
+    private fun getCurrencyRate(currencyAbbreviation: String): Double {
+        val currencyOfficialRate =
+            rates.filter { rate -> rate.Cur_Abbreviation == currencyAbbreviation }[0]
+        return currencyOfficialRate.Cur_OfficialRate / currencyOfficialRate.Cur_Scale
     }
 }
