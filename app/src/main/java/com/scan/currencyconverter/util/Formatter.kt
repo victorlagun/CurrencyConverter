@@ -4,10 +4,9 @@ import java.text.DecimalFormat
 import java.text.NumberFormat
 import java.util.*
 
-class Formatter {
+class Formatter(pattern: String) {
     private val formatter = NumberFormat.getInstance(Locale.US) as DecimalFormat
     private val symbols = formatter.decimalFormatSymbols
-    private val pattern = ",##0.00"
 
     init {
         formatter.applyPattern(pattern)
@@ -18,7 +17,7 @@ class Formatter {
         return formatter.format(number)
     }
 
-    fun parse(number: String): Double {
-        return formatter.parse(number) as Double
+    fun parse(number: String): String {
+        return number.replace(",", "")
     }
 }

@@ -1,4 +1,4 @@
-package com.scan.currencyconverter.presenter.contract
+package com.scan.currencyconverter.converter
 
 interface CurrencyConverterContract {
 
@@ -8,6 +8,8 @@ interface CurrencyConverterContract {
     }
 
     interface Presenter {
-        fun init()
+        fun loadRates()
+        fun formatInput()
+        fun formatOutput()
     }
 }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.CurrencyConverterActivity">
+    tools:context=".converter.CurrencyConverterActivity">
 
     <TextView
         android:id="@+id/title"
@@ -20,11 +20,11 @@
 
     <TextView
         android:id="@+id/usdText"
+        style="@style/TextViewStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/TextViewStyle"
-        android:text="@string/usd"
         android:layout_marginStart="32dp"
+        android:text="@string/usd"
         app:layout_constraintBottom_toBottomOf="@+id/usdLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/usdLayout" />
@@ -44,59 +44,50 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/usdEditText"
+            style="@style/EditTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:imeOptions="actionDone"
-            android:inputType="text"
-            android:textSize="14sp" />
+            android:imeOptions="actionDone" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/eurText"
+        style="@style/TextViewStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/TextViewStyle"
-        android:text="@string/eur"
         android:layout_marginStart="32dp"
-        app:layout_constraintBottom_toBottomOf="@+id/eurLayout"
+        android:text="@string/eur"
+        app:layout_constraintBottom_toBottomOf="@+id/eurTextView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/eurLayout" />
+        app:layout_constraintTop_toTopOf="@+id/eurTextView" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/eurLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+    <TextView
+        android:id="@+id/eurTextView"
+        style="@style/TextViewRateStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="26dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/eurText"
-        app:layout_constraintTop_toBottomOf="@+id/usdLayout">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/eurEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:imeOptions="actionDone"
-            android:inputType="text"
-            android:textSize="14sp" />
-    </com.google.android.material.textfield.TextInputLayout>
+        app:layout_constraintTop_toBottomOf="@+id/usdLayout" />
 
     <TextView
         android:id="@+id/rubText"
+        style="@style/TextViewStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/TextViewStyle"
-        android:text="@string/rub"
         android:layout_marginStart="32dp"
-        app:layout_constraintBottom_toBottomOf="@+id/rubLayout"
+        android:text="@string/rub"
+        app:layout_constraintBottom_toBottomOf="@+id/rubTextView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/rubLayout" />
+        app:layout_constraintTop_toTopOf="@+id/rubTextView" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/rubLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    <TextView
+        android:id="@+id/rubTextView"
+        style="@style/TextViewRateStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -104,31 +95,22 @@
         android:layout_marginEnd="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/rubText"
-        app:layout_constraintTop_toBottomOf="@+id/eurLayout">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/rubEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:imeOptions="actionDone"
-            android:inputType="text"
-            android:textSize="14sp" />
-    </com.google.android.material.textfield.TextInputLayout>
+        app:layout_constraintTop_toBottomOf="@+id/eurTextView" />
 
     <TextView
         android:id="@+id/bynText"
+        style="@style/TextViewStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/TextViewStyle"
-        android:text="@string/byn"
         android:layout_marginStart="32dp"
-        app:layout_constraintBottom_toBottomOf="@+id/bynLayout"
+        android:text="@string/byn"
+        app:layout_constraintBottom_toBottomOf="@+id/bynTextView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/bynLayout" />
+        app:layout_constraintTop_toTopOf="@+id/bynTextView" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/bynLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    <TextView
+        android:id="@+id/bynTextView"
+        style="@style/TextViewRateStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -136,15 +118,6 @@
         android:layout_marginEnd="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/bynText"
-        app:layout_constraintTop_toBottomOf="@+id/rubLayout">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/bynEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:imeOptions="actionDone"
-            android:inputType="text"
-            android:textSize="14sp" />
-    </com.google.android.material.textfield.TextInputLayout>
+        app:layout_constraintTop_toBottomOf="@+id/rubTextView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
