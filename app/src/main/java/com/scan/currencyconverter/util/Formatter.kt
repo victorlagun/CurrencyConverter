@@ -5,6 +5,7 @@ import java.text.NumberFormat
 import java.util.*
 
 class Formatter {
+
     private val formatter = NumberFormat.getInstance(Locale.US) as DecimalFormat
     private val symbols = formatter.decimalFormatSymbols
     init {
