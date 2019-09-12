@@ -53,6 +53,10 @@ class CurrencyConverterActivity : AppCompatActivity(), CurrencyConverterContract
         )
     }
 
+    override fun getInput(): String {
+        return usdEditText.text.toString()
+    }
+
     override fun setEur(eur: String) {
         eurTextView.text = setSpan(eur, TEXT_HIGH, Color.BLACK)
     }

@@ -5,6 +5,7 @@ interface CurrencyConverterContract {
     interface View {
         fun showProgressBar(boolean: Boolean)
         fun setInput(input: String)
+        fun getInput(): String
         fun setEur(eur: String)
         fun setRub(rub: String)
         fun setByn(byn: String)
