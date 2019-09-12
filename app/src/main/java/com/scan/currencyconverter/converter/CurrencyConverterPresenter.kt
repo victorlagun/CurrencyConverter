@@ -11,11 +11,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
 class CurrencyConverterPresenter : Presenter {
-//        init {
-//        App.getComponent().inject(this)
-//    }
-//    @Inject
-//    lateinit var converter: Converter
 
     private val repository = Repository(Remote.create())
     private val converter = Converter()
@@ -47,13 +42,16 @@ class CurrencyConverterPresenter : Presenter {
     }
 
     private fun loadRates() {
-        view.showProgressBar()
+        view.showProgressBar(true)
         repository.rates(0)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
-            .doAfterTerminate { view.hideProgressBar() }
+            .doAfterTerminate {
+                view.showProgressBar(false)
+            }
             .subscribe({ result ->
                 rates = result
+                view.setInput("1")
             }, { error ->
                 error.printStackTrace()
             })

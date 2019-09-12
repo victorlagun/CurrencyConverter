@@ -1,9 +1,12 @@
 package com.scan.currencyconverter.util
 
+import android.content.Context
+import android.net.ConnectivityManager
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
 import android.text.style.RelativeSizeSpan
+
 
 fun setSpan(formattedRate: String, textHigh: Float, color: Int): Spannable {
     val result = SpannableString(formattedRate)
@@ -25,4 +28,14 @@ fun removeLastChar(s: String?): String {
         ""
     else
         s.substring(0, s.length - 1)
+}
+
+fun isNetworkAvailable(context: Context): Boolean {
+    val connectivityManager =
+        context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+    return run {
+        val activeNetwork = connectivityManager.activeNetworkInfo
+        activeNetwork != null && activeNetwork.isConnectedOrConnecting
+    }
 }

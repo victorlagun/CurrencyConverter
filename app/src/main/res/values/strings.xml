@@ -5,5 +5,6 @@
     <string name="eur">EUR</string>
     <string name="rub">RUB</string>
     <string name="byn">BYN</string>
+    <string name="network_state">Отсутствуе подключение.</string>
 
 </resources>

@@ -1,5 +1,6 @@
 package com.scan.currencyconverter.repository.remote
 
+import com.scan.currencyconverter.model.BASE_URL
 import com.scan.currencyconverter.model.CurrencyOfficialRate
 import io.reactivex.Observable
 import retrofit2.Retrofit
@@ -18,7 +19,7 @@ interface Remote {
             val retrofit = Retrofit.Builder()
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl("https://www.nbrb.by/api/exrates/")
+                .baseUrl(BASE_URL)
                 .build()
 
             return retrofit.create(Remote::class.java)

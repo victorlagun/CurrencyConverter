@@ -3,9 +3,7 @@ package com.scan.currencyconverter.converter
 interface CurrencyConverterContract {
 
     interface View {
-        fun showProgressBar()
-        fun hideProgressBar()
-        fun getInput()
+        fun showProgressBar(boolean: Boolean)
         fun setInput(input: String)
         fun setEur(eur: String)
         fun setRub(rub: String)
