@@ -27,9 +27,11 @@ class CurrencyConverterPresenter : Presenter {
     override fun handleInput(input: String) {
         if (input.isNotEmpty()) {
             if (input.contains(".") && input.substringAfter(".", "").isEmpty()) {
-                view.setEur(formatOutput(getParsedInput(input), EUR))
-                view.setRub(formatOutput(getParsedInput(input), RUB))
-                view.setByn(formatOutput(getParsedInput(input), BYN))
+                if (input.length > 1) {
+                    view.setEur(formatOutput(getParsedInput(input), EUR))
+                    view.setRub(formatOutput(getParsedInput(input), RUB))
+                    view.setByn(formatOutput(getParsedInput(input), BYN))
+                }
             } else {
                 formatInput(input)
                 view.setEur(formatOutput(getParsedInput(input), EUR))
