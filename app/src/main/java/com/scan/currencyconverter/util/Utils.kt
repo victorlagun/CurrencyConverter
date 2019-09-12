@@ -19,3 +19,10 @@ fun setSpan(formattedRate: String, textHigh: Float, color: Int): Spannable {
     )
     return result
 }
+
+fun removeLastChar(s: String?): String {
+    return if (s == null || s.isEmpty())
+        ""
+    else
+        s.substring(0, s.length - 1)
+}

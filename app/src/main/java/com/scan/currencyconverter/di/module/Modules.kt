@@ -2,7 +2,8 @@ package com.scan.currencyconverter.di.module
 
 import android.content.Context
 import androidx.annotation.NonNull
-import com.scan.currencyconverter.model.CurrencyOfficialRate
+import com.scan.currencyconverter.converter.CurrencyConverterContract
+import com.scan.currencyconverter.converter.CurrencyConverterPresenter
 import com.scan.currencyconverter.repository.Repository
 import com.scan.currencyconverter.repository.remote.Remote
 import com.scan.currencyconverter.util.Converter
@@ -12,19 +13,28 @@ import dagger.Provides
 import javax.inject.Singleton
 
 @Module
+class ConverterModule {
+
+    @Provides
+    fun providePresenter(): CurrencyConverterContract.Presenter {
+        return CurrencyConverterPresenter()
+    }
+}
+
+@Module
 class UtilsModule {
 
     @Provides
     @NonNull
     @Singleton
-    fun provideConverter(rates: List<CurrencyOfficialRate>, fromCurrency: String): Converter {
-        return Converter(rates, fromCurrency)
+    fun provideConverter(): Converter {
+        return Converter()
     }
 
     @Provides
     @NonNull
-    fun provideFormatter(pattern: String): Formatter {
-        return Formatter(pattern)
+    fun provideFormatter(): Formatter {
+        return Formatter()
     }
 }
 
