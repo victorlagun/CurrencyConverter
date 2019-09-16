@@ -69,14 +69,6 @@ class CurrencyConverterActivity : AppCompatActivity(), CurrencyConverterContract
         bynTextView.text = setSpan(byn, TEXT_HIGH, Color.BLACK)
     }
 
-    override fun getCursorPosition(): Int {
-        return usdEditText.selectionStart
-    }
-
-    override fun setCursorPosition(position: Int) {
-        usdEditText.setSelection(position)
-    }
-
     override fun addTextWatcher() {
         usdEditText.addTextChangedListener(textWatcher)
     }

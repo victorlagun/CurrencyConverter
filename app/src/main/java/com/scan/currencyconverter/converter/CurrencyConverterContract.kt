@@ -9,8 +9,6 @@ interface CurrencyConverterContract {
         fun setEur(eur: String)
         fun setRub(rub: String)
         fun setByn(byn: String)
-        fun getCursorPosition(): Int
-        fun setCursorPosition(position: Int)
         fun addTextWatcher()
         fun removeTextWatcher()
         fun clear()
